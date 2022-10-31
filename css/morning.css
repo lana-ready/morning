@@ -1,0 +1,75 @@
+@charset "utf-8";
+
+* {margin:0; padding:0; box-sizing:border-box;}
+html,body {font:10pt "나눔고딕"; color:#666666;}
+img {display:block; max-width:100%;}
+a {text-decoration:none; color:#666666; display:block;}
+a:hover {text-decoration:underline; color:#004f8a;}
+#layout {width:1100px; height:1200px; /*border:3px solid pink;*/
+		margin:auto; position:relative;}
+
+/*상단*/
+header {height:200px; /*border:3px solid red;*/ display:flex; align-items:center; padding:0 20px;}   
+/*로고*/
+header>a {margin-right:100px;}
+header>nav {flex:1; display:flex; /*border:3px solid blue;*/ text-align:center; align-items:flex-start;/*세로정렬 위로*/}
+/*펜션소개*/
+header>nav>a {flex:1; /*border:1px solid green;*/}
+/*룸 미리보기 + 커뮤니티*/
+header>nav>div {flex:1; /*border:1px solid green;*/ position:relative;}
+/*메인메뉴*/
+.mainMenu {/*background:gold;*/ padding:10px 0px 11px 0px; font-size:1.3rem; font-weight:bold; color:black;}
+.mainMenu:hover, .mainMenu.active {background:#004f8a; color:white; text-decoration:none;}
+/*메인메뉴 마우스오버하면 서브메뉴 보이기 는 무슨 하위메뉴 선택안되서 사용불가
+.mainMenu:hover+.subMenu {display:block;}*/
+/*서브메뉴*/
+.subMenu {position:absolute; /*background:#6a6a6a;*/ width:100%; padding:8px; display:none; z-index:2;}
+.subMenu>a {padding:8px; color:gray;}
+.subMenu>a:hover {background:dodgerblue; text-decoration:none;}
+
+#white {background:rgba(255,255,255,0.85); box-shadow:0 1px 3px rgba(0,0,0,0.5); width:100%; height:0px; position:absolute; left:0; z-index:1;}
+
+/*슬라이드배너*/
+#sliding {height:350px; /*border:3px solid red;*/ overflow:hidden; position:relative;}
+#sliding h1 {position:absolute; background:white; padding:50px 150px; border-radius:20px; box-shadow:0 0 5px black; top:30%; left:25%; /*포지션값정해놔서 flex해서 정렬하는게 충돌됨 그래서 top left로 위치 정해줌*/
+			z-index:1; text-align:center; }
+#sliding h1 b {color:red;}
+/*슬라이드 애니메이션*/
+#sliding div {display:flex; width:3300px; position:relative;/*좌표이동에 필수*/}
+#sliding img {width:1100px; height:350px;}
+
+/*메인*/
+main {display:flex; position:relative; margin-top:80px; height:500px;}
+/*메인요소의 모든 자식요소들*/
+/*main>*:not(#popup) {flex:1;}*/
+main>section:nth-child(1),main>section:nth-child(2) {margin-right:50px;}
+
+#notice {flex:1;}
+#notice>h2 {border-bottom:2px solid #004f8a; padding-bottom:5px;}
+#notice>ul {list-style-position:inside; margin-top:10px;}
+#notice li a {display:inline-block; padding:5px;}
+#notice li span {float:right;}
+
+#partner {flex:0.8;}
+#partner>h2 {border-bottom:2px solid #004f8a; padding-bottom:5px;}
+#partner>img {margin:12px 0 30px 0;}
+#partner>div {display:flex; align-items:center; justify-content:center;}
+#partner>div>section {border-radius:50%; background:#6a6a6a; color:white; width:130px; height:130px; 
+					padding-top:12.5%; text-align:center; letter-spacing:-0.3pt;}
+#partner>div>ul {list-style:none; margin-left:30px;}
+#partner>div>ul>a {display:inline-block;}
+
+#icons {flex:0.6; padding-top:27px;}
+#icons h2 {display:none;}
+#icons div {text-align:right;}
+#icons a {display:inline-block; margin-bottom:20px;}
+
+#popup {position:absolute; background:white; top:-80%; left:20%; padding:20px; width:60%; border-radius:20px; z-index:1;
+		box-shadow:0 0 10px black; display:none;} /*absolute는 flex에서 제외된다.*/
+#popup>button {float:right; margin-top:10px; padding:3px 6px;}
+
+/*하단*/
+footer {height:150px; background:lightgray; color:white; padding:20px;}
+footer>ul {display:flex; list-style:none;}
+footer>ul>li {flex:1; line-height:25px;}
+footer a {display:inline-block; color:white;}
